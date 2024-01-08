@@ -1,0 +1,166 @@
+.checkbox-block {
+            display: inline-block;
+            width: 20%;
+            height: 200px;
+            box-shadow: 0.3rem 0.3rem 0.3rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+            border-radius: 1rem;
+            margin: 1%;
+            /* border: 1px solid #ccc; */
+            text-align: left;
+            padding: 10px;
+            user-select: none; /* Предотвращает выделение текста при двойном клике */
+        }
+
+        .program-checkbox {
+            margin-right: 5px;
+            margin-top: 3%;
+            cursor: pointer;
+        }
+
+        .program-checkbox:hover {
+            text-decoration: underline; /* Подчеркивает текст при наведении курсора */
+        }
+
+        /* Стиль для контейнера блоков */
+        .blocks-container {
+          justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Стиль для контейнера кнопок */
+        .buttons-container {
+            justify-content: center;
+            display: flex;
+            margin: 1%;
+
+        }
+
+:root {
+        --primary-light: #8abdff;
+        --primary: #6d5dfc;
+        --primary-dark: #5b0eeb;
+        --white: #FFFFFF;
+        --greyLight-1: #E4EBF5;
+        --greyLight-2: #c8d0e7;
+        --greyLight-3: #bec8e4;
+        --greyDark: #5a6378;
+    }
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+
+    }
+    html {
+        box-sizing: border-box;
+        font-size: 100%;
+        background: var(--greyLight-1);
+    }
+
+    .con {
+    min-height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Изменение направления оси на вертикальную */
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    background: var(--greyLight-1);
+}
+    .com {
+        padding: 1rem;
+
+        grid-template-rows: repeat(autofit, -webkit-min-content);
+        grid-template-rows: repeat(autofit, min-content);
+
+        align-items: center;
+    }
+
+    .normal-button {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.7rem;
+            box-shadow: 0.3rem 0.3rem 0.3rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+            font-size: 2rem;
+            border: none;
+            margin: 1rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            background: var(--greyLight-1);
+            transition: background 0.5s ease;
+            color: var(--primary);
+        }
+    .normal-button:active{
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+        color: var(--primary-dark);
+    }
+    .normal-button:hover{
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+      /* transform: scale(0.995); */
+      transition: 0.5s;
+      color: var(--primary-dark);
+    }
+    .toggle-theme-button{
+        width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.7rem;
+            box-shadow: 0.3rem 0.3rem 0.3rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+            font-size: 2rem;
+            border: none;
+            margin: 1rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            background: var(--greyLight-1);
+            transition: background 0.5s ease;
+            color: var(--primary);
+    }
+    .toggle-theme-button:active {
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+        color: var(--primary-dark);
+    }
+    .toggle-theme-button:hover{
+        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+        transition: 0.5s;
+        color: var(--primary-dark);
+    }
+    .svg-container {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+.svg-con {
+    display: flex;
+    justify-content: center;
+}
+/* Стили для чекбоксов блока */
+.checkbox-block input[type="checkbox"] {
+    margin-right: 3px; /* Уменьшите отступ справа */
+    border-radius: 50% !important;
+    border: #e61818 !important;
+}
+
+
+/* Стили для названий блоков */
+.checkbox-block label {
+    display: inline-block; /* Размещаем текст блока в одной строке с чекбоксом */
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+.program-checkbox {
+    margin-left: 15px;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--greyLight-2);
+}
+
+/* Изменение цвета текста при активации (нажатии) чекбокса */
+.checkbox-block input[type="checkbox"]:checked + label,
+.program-checkbox:checked + label {
+    color: #6d5dfc;
+    font-weight: 600;
+}
+
+
+

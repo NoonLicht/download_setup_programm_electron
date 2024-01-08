@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download App</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="con">
+        <div class="com"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.querySelector('.com');
+
+            // Создаем контейнер для блоков
+            const blocksContainer = document.createElement("div");
+            blocksContainer.className = "blocks-container";
+            container.appendChild(blocksContainer);
+
+//------------------------------------------------------------------------------------------//
+            // Добавляем кнопку "Выбрать папку"
+            const chooseFolderButton = document.createElement("button");
+            chooseFolderButton.className = "button normal-button";
+            chooseFolderButton.addEventListener("click", chooseFolder);
+
+            // Добавляем SVG для кнопки "Выбрать папку"
+            const folderIconSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            folderIconSVG.setAttribute("width", "85%");
+            folderIconSVG.setAttribute("height", "85%");
+            folderIconSVG.setAttribute("fill", "none");
+            folderIconSVG.setAttribute("stroke", "currentColor");
+            folderIconSVG.setAttribute("stroke-linecap", "round");
+            folderIconSVG.setAttribute("stroke-linejoin", "round");
+            folderIconSVG.setAttribute("stroke-width", "2");
+            folderIconSVG.setAttribute("viewBox", "0 0 24 24");
+
+            const folderIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            folderIconPath.setAttribute("d", "M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z");
+
+            folderIconSVG.appendChild(folderIconPath);
+            chooseFolderButton.appendChild(folderIconSVG);
+
+            // Создаем контейнер для хранения свг и применяем стиль
+            const folderIconContainer = document.createElement("div");
+            folderIconContainer.className = "svg-con";
+
+            // Устанавливаем SVG в контейнер
+            folderIconContainer.appendChild(folderIconSVG);
+
+            // Добавляем SVG контейнер в кнопку "Выбрать папку"
+            chooseFolderButton.appendChild(folderIconContainer);
+
+//------------------------------------------------------------------------------------------//
+            // Добавляем кнопку "Скачать"
+            const downloadButton = document.createElement("button");
+            downloadButton.className = "button normal-button";
+            downloadButton.addEventListener("click", downloadData);
+
+            // Добавляем SVG для кнопки "Скачать"
+            const downloadIconSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            downloadIconSVG.setAttribute("width", "85%");
+            downloadIconSVG.setAttribute("height", "85%");
+            downloadIconSVG.setAttribute("fill", "none");
+            downloadIconSVG.setAttribute("stroke", "currentColor");
+            downloadIconSVG.setAttribute("stroke-linecap", "round");
+            downloadIconSVG.setAttribute("stroke-linejoin", "round");
+            downloadIconSVG.setAttribute("stroke-width", "2");
+            downloadIconSVG.setAttribute("viewBox", "0 0 24 24");
+
+            const downloadIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            downloadIconPath.setAttribute("d", "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4");
+            const downloadIconPath2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            downloadIconPath2.setAttribute("d", "m7 10 5 5 5-5");
+            const downloadIconPath3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            downloadIconPath3.setAttribute("d", "M12 15V3");
+
+            downloadIconSVG.appendChild(downloadIconPath);
+            downloadIconSVG.appendChild(downloadIconPath2);
+            downloadIconSVG.appendChild(downloadIconPath3);
+
+            // Создаем контейнер для хранения свг и применяем стиль
+            const downloadSvgContainer = document.createElement("div");
+            downloadSvgContainer.className = "svg-con";
+
+            // Устанавливаем SVG в контейнер
+            downloadSvgContainer.appendChild(downloadIconSVG);
+
+            // Добавляем SVG контейнер в кнопку "Скачать"
+            downloadButton.appendChild(downloadSvgContainer);
+
+//------------------------------------------------------------------------------------------//
+            // Добавляем кнопку "Установить"
+            const installButton = document.createElement("button");
+            installButton.className = "button normal-button";
+            installButton.addEventListener("click", installData);
+
+            // Добавляем SVG для кнопки "Установить"
+            const installIconSVG = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            installIconSVG.setAttribute("width", "85%");
+            installIconSVG.setAttribute("height", "85%");
+            installIconSVG.setAttribute("fill", "none");
+            installIconSVG.setAttribute("stroke", "currentColor");
+            installIconSVG.setAttribute("stroke-linecap", "round");
+            installIconSVG.setAttribute("stroke-linejoin", "round");
+            installIconSVG.setAttribute("stroke-width", "2");
+            installIconSVG.setAttribute("viewBox", "0 0 24 24");
+
+            const installIconPath1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            installIconPath1.setAttribute("d", "M3 3h7v7H3z");
+            const installIconPath2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            installIconPath2.setAttribute("d", "M14 3h7v7h-7z");
+            const installIconPath3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            installIconPath3.setAttribute("d", "M14 14h7v7h-7z");
+            const installIconPath4 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            installIconPath4.setAttribute("d", "M3 14h7v7H3z");
+
+            installIconSVG.appendChild(installIconPath1);
+            installIconSVG.appendChild(installIconPath2);
+            installIconSVG.appendChild(installIconPath3);
+            installIconSVG.appendChild(installIconPath4);
+
+            // Создаем контейнер для хранения свг и применяем стиль
+            const installSvgContainer = document.createElement("div");
+            installSvgContainer.className = "svg-con";
+
+            // Устанавливаем SVG в контейнер
+            installSvgContainer.appendChild(installIconSVG);
+
+            // Добавляем SVG контейнер в кнопку "Установить"
+            installButton.appendChild(installSvgContainer);
+
+
+//------------------------------------------------------------------------------------------//
+
+            const toggleThemeButton = document.createElement("button");
+            toggleThemeButton.className = "button toggle-theme-button";
+            toggleThemeButton.addEventListener("click", toggleTheme);
+
+            // Создаем контейнер для хранения свг
+            const svgContainer = document.createElement("div");
+            svgContainer.className = "svg-container";
+
+            // Создаем массив из ваших свг
+            const svgs = [
+                `<svg width="85%" height="85%" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 7a5 5 0 1 0 0 10 5 5 0 1 0 0-10z"></path>
+                    <path d="M12 1v2"></path>
+                    <path d="M12 21v2"></path>
+                    <path d="m4.22 4.22 1.42 1.42"></path>
+                    <path d="m18.36 18.36 1.42 1.42"></path>
+                    <path d="M1 12h2"></path>
+                    <path d="M21 12h2"></path>
+                    <path d="m4.22 19.78 1.42-1.42"></path>
+                    <path d="m18.36 5.64 1.42-1.42"></path>
+                </svg>`,
+                `<svg width="85%" height="85%" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+                </svg>`
+            ];
+
+            // Устанавливаем первое svg при инициализации
+            svgContainer.innerHTML = svgs[0];
+            toggleThemeButton.appendChild(svgContainer);
+
+            // Индекс текущего svg
+            let currentSvgIndex = 0;
+
+            // Создаем контейнер для кнопок
+            const buttonsContainer = document.createElement("div");
+            buttonsContainer.className = "buttons-container";
+            buttonsContainer.appendChild(chooseFolderButton);
+            buttonsContainer.appendChild(downloadButton);
+            buttonsContainer.appendChild(installButton);
+            buttonsContainer.appendChild(toggleThemeButton);
+            container.appendChild(buttonsContainer);
+
+            // Остальной код остается без изменений
+
+            fetch('data.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const lines = data.split('\n');
+
+                    let currentBlockCheckboxes = [];
+
+                    for (let i = 0; i < lines.length; i++) {
+                        const line = lines[i].trim();
+
+                        if (line) {
+                            // Если строка не пустая
+
+                            if (line.startsWith("Название Блока")) {
+                                // Если это строка с названием блока, создаем новый блок
+                                const block = document.createElement("div");
+                                block.className = "checkbox-block";
+
+                                // Добавляем чекбокс для блока
+                                const blockCheckbox = document.createElement("input");
+                                blockCheckbox.type = "checkbox";
+                                blockCheckbox.id = "blockCheckbox" + (i + 1);
+                                
+                                // Добавляем название блока
+                                const blockLabel = document.createElement("label");
+                                blockLabel.htmlFor = "blockCheckbox" + (i + 1);
+                                blockLabel.innerHTML = "&nbsp;" + line;
+
+                                // Добавляем чекбокс и название блока в блок
+                                block.appendChild(blockCheckbox);
+                                block.appendChild(blockLabel);
+
+                                // Добавляем блок в контейнер блоков
+                                blocksContainer.appendChild(block);
+
+                                // Добавляем чекбокс блока в массив для последующего использования
+                                currentBlockCheckboxes.push(blockCheckbox);
+                            } else {
+                                // Если это строка с названием программы, добавляем чекбокс для программы
+                                const programCheckbox = document.createElement("input");
+                                programCheckbox.type = "checkbox";
+                                programCheckbox.className = "program-checkbox";
+                                programCheckbox.id = "programCheckbox" + (i + 1);
+
+                                // Добавляем название программы
+                                const programLabel = document.createElement("label");
+                                programLabel.htmlFor = "programCheckbox" + (i + 1);
+                                programLabel.textContent = line;
+
+                                // Добавляем чекбокс и название программы в последний блок
+                                const lastBlock = blocksContainer.lastElementChild;
+                                lastBlock.appendChild(document.createElement("br"));
+                                lastBlock.appendChild(programCheckbox);
+                                lastBlock.appendChild(programLabel);
+                            }
+                        }
+                    }
+
+                    // Добавляем слушатель событий для чекбоксов блока
+                    currentBlockCheckboxes.forEach(blockCheckbox => {
+                        blockCheckbox.addEventListener("change", function() {
+                            toggleProgramCheckboxes(this);
+                        });
+                    });
+                })
+                .catch(error => console.error('Ошибка загрузки файла:', error));
+
+            // Обработчики для кнопок
+
+            function chooseFolder() {
+                // Добавьте код для выбора папки
+                console.log("Выбрать папку");
+            }
+
+            function downloadData() {
+                // Добавьте код для скачивания данных
+                console.log("Скачать данные");
+            }
+
+            function installData() {
+                // Добавьте код для установки данных
+                console.log("Установить данные");
+            }
+
+            function toggleTheme() {
+                // Увеличиваем индекс
+                currentSvgIndex = (currentSvgIndex + 1) % svgs.length;
+                // Устанавливаем новое svg
+                svgContainer.innerHTML = svgs[currentSvgIndex];
+                // Добавьте ваш код для смены темы, если необходимо
+            }
+
+            // Функция для переключения состояния чекбоксов программ в блоке
+            function toggleProgramCheckboxes(blockCheckbox) {
+                const block = blockCheckbox.closest(".checkbox-block");
+                const programCheckboxes = block.querySelectorAll(".program-checkbox");
+
+                programCheckboxes.forEach(checkbox => {
+                    checkbox.checked = blockCheckbox.checked;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
