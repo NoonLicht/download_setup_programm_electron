@@ -5,10 +5,9 @@
             box-shadow: 0.3rem 0.3rem 0.3rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
             border-radius: 1rem;
             margin: 1%;
-            /* border: 1px solid #ccc; */
             text-align: left;
             padding: 10px;
-            user-select: none; /* Предотвращает выделение текста при двойном клике */
+            user-select: none;
         }
 
         .program-checkbox {
@@ -18,17 +17,15 @@
         }
 
         .program-checkbox:hover {
-            text-decoration: underline; /* Подчеркивает текст при наведении курсора */
+            text-decoration: underline;
         }
 
-        /* Стиль для контейнера блоков */
         .blocks-container {
           justify-content: center;
             display: flex;
             flex-wrap: wrap;
         }
 
-        /* Стиль для контейнера кнопок */
         .buttons-container {
             justify-content: center;
             display: flex;
@@ -61,7 +58,7 @@
     min-height: 90%;
     width: 100%;
     display: flex;
-    flex-direction: column; /* Изменение направления оси на вертикальную */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: "Poppins", sans-serif;
@@ -132,30 +129,29 @@
     display: flex;
     justify-content: center;
 }
-/* Стили для чекбоксов блока */
+
 .checkbox-block input[type="checkbox"] {
-    margin-right: 3px; /* Уменьшите отступ справа */
-    border-radius: 50% !important;
-    border: #e61818 !important;
+    margin-right: 3px;
+    width: 0rem;
+    height: 0rem;
 }
 
-
-/* Стили для названий блоков */
 .checkbox-block label {
-    display: inline-block; /* Размещаем текст блока в одной строке с чекбоксом */
+    display: inline-block;
     vertical-align: middle;
     cursor: pointer;
-}
+    justify-content: flex-end;
 
+    margin-bottom: 5px;
+}
 
 .program-checkbox {
     margin-left: 15px;
-    width: 0.7rem;
-    height: 0.7rem;
+    width: 0rem;
+    height: 0rem;
     background: var(--greyLight-2);
 }
 
-/* Изменение цвета текста при активации (нажатии) чекбокса */
 .checkbox-block input[type="checkbox"]:checked + label,
 .program-checkbox:checked + label {
     color: #6d5dfc;
