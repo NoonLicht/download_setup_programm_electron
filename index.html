@@ -175,9 +175,7 @@
             buttonsContainer.appendChild(installButton);
             buttonsContainer.appendChild(toggleThemeButton);
             container.appendChild(buttonsContainer);
-
-            // Остальной код остается без изменений
-
+            
             fetch('data.txt')
                 .then(response => response.text())
                 .then(data => {
@@ -236,7 +234,6 @@
                         }
                     }
 
-                    // Добавляем слушатель событий для чекбоксов блока
                     currentBlockCheckboxes.forEach(blockCheckbox => {
                         blockCheckbox.addEventListener("change", function() {
                             toggleProgramCheckboxes(this);
@@ -248,29 +245,23 @@
             // Обработчики для кнопок
 
             function chooseFolder() {
-                // Добавьте код для выбора папки
                 console.log("Выбрать папку");
             }
 
             function downloadData() {
-                // Добавьте код для скачивания данных
                 console.log("Скачать данные");
             }
 
             function installData() {
-                // Добавьте код для установки данных
                 console.log("Установить данные");
             }
 
             function toggleTheme() {
-                // Увеличиваем индекс
                 currentSvgIndex = (currentSvgIndex + 1) % svgs.length;
-                // Устанавливаем новое svg
                 svgContainer.innerHTML = svgs[currentSvgIndex];
-                // Добавьте ваш код для смены темы, если необходимо
+                document.body.classList.toggle('dark-theme');
             }
 
-            // Функция для переключения состояния чекбоксов программ в блоке
             function toggleProgramCheckboxes(blockCheckbox) {
                 const block = blockCheckbox.closest(".checkbox-block");
                 const programCheckboxes = block.querySelectorAll(".program-checkbox");

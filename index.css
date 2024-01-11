@@ -2,7 +2,7 @@
             display: inline-block;
             width: 20%;
             height: 200px;
-            box-shadow: 0.3rem 0.3rem 0.3rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+            box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
             border-radius: 1rem;
             margin: 1%;
             text-align: left;
@@ -38,7 +38,8 @@
         --primary: #6d5dfc;
         --primary-dark: #5b0eeb;
         --white: #FFFFFF;
-        --greyLight-1: #E4EBF5;
+        --greyLight-1: #f1f1f1;
+        --darkLight-1: #32383c;
         --greyLight-2: #c8d0e7;
         --greyLight-3: #bec8e4;
         --greyDark: #5a6378;
@@ -52,8 +53,45 @@
         box-sizing: border-box;
         font-size: 100%;
         background: var(--greyLight-1);
+        overflow-y: hidden;
     }
 
+    body.dark-theme {
+        background: var(--darkLight-1);
+    }
+    body.dark-theme .checkbox-block {
+        box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+    }
+
+    body.dark-theme .con {
+        background: var(--darkLight-1);
+        color: #f1f1f1;
+    }
+    body.dark-theme .normal-button {
+        box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+        background: var(--darkLight-1);
+    }
+    body.dark-theme .normal-button:active {
+        box-shadow: inset 3px 3px 7px #1d2023,
+        inset -3px -3px 7px #ffffff1a;
+    }
+    body.dark-theme .normal-button:hover {
+        box-shadow: inset 3px 3px 7px #1d2023,
+        inset -3px -3px 7px #ffffff1a;
+    }
+    body.dark-theme .toggle-theme-button {
+        box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+        background: var(--darkLight-1);
+    }
+    body.dark-theme .toggle-theme-button:active {
+        box-shadow: inset 3px 3px 7px #1d2023,
+        inset -3px -3px 7px #ffffff1a;
+    }
+    body.dark-theme .toggle-theme-button:hover {
+        box-shadow: inset 3px 3px 7px #1d2023,
+        inset -3px -3px 7px #ffffff1a;
+    }
+    
     .con {
     min-height: 90%;
     width: 100%;
@@ -64,6 +102,7 @@
     font-family: "Poppins", sans-serif;
     background: var(--greyLight-1);
 }
+
     .com {
         padding: 1rem;
 
@@ -77,7 +116,7 @@
             width: 2.5rem;
             height: 2.5rem;
             border-radius: 0.7rem;
-            box-shadow: 0.3rem 0.3rem 0.3rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+            box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
             font-size: 2rem;
             border: none;
             margin: 1rem;
@@ -88,12 +127,13 @@
             color: var(--primary);
         }
     .normal-button:active{
-        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+        box-shadow: inset 3px 3px 7px var(--greyLight-2),
+        inset -3px -3px 7px var(--white);
         color: var(--primary-dark);
     }
     .normal-button:hover{
-        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
-      /* transform: scale(0.995); */
+        box-shadow: inset 3px 3px 7px var(--greyLight-2),
+        inset -3px -3px 7px var(--white);
       transition: 0.5s;
       color: var(--primary-dark);
     }
@@ -101,7 +141,7 @@
         width: 2.5rem;
             height: 2.5rem;
             border-radius: 0.7rem;
-            box-shadow: 0.3rem 0.3rem 0.3rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+            box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
             font-size: 2rem;
             border: none;
             margin: 1rem;
@@ -112,11 +152,13 @@
             color: var(--primary);
     }
     .toggle-theme-button:active {
-        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+        box-shadow: inset 3px 3px 7px var(--greyLight-2),
+        inset -3px -3px 7px var(--white);
         color: var(--primary-dark);
     }
     .toggle-theme-button:hover{
-        box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+        box-shadow: inset 3px 3px 7px var(--greyLight-2),
+        inset -3px -3px 7px var(--white);
         transition: 0.5s;
         color: var(--primary-dark);
     }
