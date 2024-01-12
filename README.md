@@ -3,4 +3,5 @@
 
 ![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/c7495833-e5ae-4c1c-b78f-66f842ae6fd7)
 
-![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/d93854e7-a9a6-4c72-9603-ca8b542c38a6)
+![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/945ab44a-557d-498d-b40f-a05e0b93effa)
+
