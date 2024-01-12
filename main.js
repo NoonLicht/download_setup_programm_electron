@@ -25,7 +25,7 @@ let loadingWindow;
 
 function createLoadingWindow() {
   loadingWindow = new BrowserWindow({
-    width: 1000,
+    width: 1200,
     height: 650,
     frame: false,
     transparent: true,
@@ -44,7 +44,7 @@ function createLoadingWindow() {
 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
-    width: 1000,
+    width: 1200,
     height: 650,
     resizable: false,
     webPreferences: {

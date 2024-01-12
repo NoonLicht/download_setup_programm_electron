@@ -79,6 +79,13 @@
                 "M22 12h-4l-3 9L9 3l-3 9H2"
             );
 
+            const GithubLink = createIconButton(
+                "button normal-button",
+                gitLink,
+                "M16.25 22.5v-3.865a3.361 3.361 0 0 0-.94-2.607c3.14-.35 6.44-1.538 6.44-6.99a5.43 5.43 0 0 0-1.5-3.746 5.058 5.058 0 0 0-.09-3.765s-1.18-.35-3.91 1.478a13.397 13.397 0 0 0-7 0C6.52 1.177 5.34 1.527 5.34 1.527a5.058 5.058 0 0 0-.09 3.765 5.43 5.43 0 0 0-1.5 3.775c0 5.413 3.3 6.602 6.44 6.991a3.366 3.366 0 0 0-.94 2.577V22.5 M9.25 19.503c-5 1.498-5-2.496-7-2.996"
+            );
+
+
 //----------------------------------------Кнопка "Смена темы"----------------------------------------//
 
             const toggleThemeButton = document.createElement("button");
@@ -122,6 +129,7 @@
             buttonsContainer.appendChild(installButton);
             buttonsContainer.appendChild(installLinux);
             buttonsContainer.appendChild(installHyperV);
+            buttonsContainer.appendChild(GithubLink);
             buttonsContainer.appendChild(toggleThemeButton);
             container.appendChild(buttonsContainer);
 
@@ -145,28 +153,34 @@
                         if (line) {
                             // Если строка не пустая
 
-                            if (line.startsWith("Название Блока")) {
-                                // Если это строка с названием блока, создаем новый блок
+                            if (line.startsWith("/")) {
+                                // Убираем символ "/" из названия блока
+                                const blockName = line.replace("/", "").trim();
+                            
+                                // Создаем новый блок
                                 const block = document.createElement("div");
                                 block.className = "checkbox-block";
-
+                            
                                 // Добавляем чекбокс для блока
                                 const blockCheckbox = document.createElement("input");
                                 blockCheckbox.type = "checkbox";
                                 blockCheckbox.id = "blockCheckbox" + (i + 1);
-                                
+                            
                                 // Добавляем название блока
                                 const blockLabel = document.createElement("label");
                                 blockLabel.htmlFor = "blockCheckbox" + (i + 1);
-                                blockLabel.innerHTML = "&nbsp;" + line;
+                                blockLabel.innerHTML = blockName;
+                            
+                                // Добавляем стиль только к названию блока
+                                blockLabel.classList.add("program-name-style");
 
                                 // Добавляем чекбокс и название блока в блок
                                 block.appendChild(blockCheckbox);
                                 block.appendChild(blockLabel);
-
+                            
                                 // Добавляем блок в контейнер блоков
                                 blocksContainer.appendChild(block);
-
+                            
                                 // Добавляем чекбокс блока в массив для последующего использования
                                 currentBlockCheckboxes.push(blockCheckbox);
                             } else {
@@ -180,6 +194,8 @@
                                 const programLabel = document.createElement("label");
                                 programLabel.htmlFor = "programCheckbox" + (i + 1);
                                 programLabel.textContent = line;
+
+                                programLabel.classList.add("program-name-style");
 
                                 // Добавляем чекбокс и название программы в последний блок
                                 const lastBlock = blocksContainer.lastElementChild;
@@ -218,6 +234,10 @@
 
             function installData() {
                 console.log("Установить данные");
+            }
+
+            function gitLink() {
+                console.log("Ссылка на репозиторий");
             }
 
             function toggleTheme() {
