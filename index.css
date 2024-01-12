@@ -37,6 +37,7 @@ width: 100%;
 line-height: 1;
 position: relative;
 margin-top: 1%;
+color: #8a8a8b;
 }
 
 .program-name-style::before {
@@ -54,7 +55,6 @@ transition: height .4s;
 .program-name-style:hover::before {
 height: 100%;
 }
-
 
 .program-checkbox {
 margin-right: 5px;
@@ -136,6 +136,10 @@ inset -3px -3px 7px #ffffff1a;
 body.dark-theme .toggle-theme-button:hover {
 box-shadow: inset 3px 3px 7px #1d2023,
 inset -3px -3px 7px #ffffff1a;
+}
+body.dark-theme .checkbox-block input[type="checkbox"]:checked + label,
+body.dark-theme .program-checkbox:checked + label {
+color: #ffffff;
 }
 
 .con {
@@ -242,7 +246,7 @@ background: var(--greyLight-2);
 
 .checkbox-block input[type="checkbox"]:checked + label,
 .program-checkbox:checked + label {
-color: #;
+color: #000000;
 /* font-weight: 600; */
 }
 

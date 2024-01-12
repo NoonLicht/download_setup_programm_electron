@@ -53,6 +53,7 @@ Yuzu
 Ryujinx
 PPSSPP
 CEMU
+NOX Player
 /Creativity
 Blender
 Krita
