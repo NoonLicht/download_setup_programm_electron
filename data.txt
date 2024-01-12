@@ -13,7 +13,7 @@ NVIDIA Experience
 OpenVpn
 /Clients
 Steam
-Epic Games Launcher
+Epic Games
 Rockstar Launcher
 Riot Client
 GOG Galaxy
@@ -29,6 +29,7 @@ PyCharm
 Github Desktop
 PostgreSQL
 DBeaver
+Notion
 /Dependencies
 DirectX
 Node.js
