@@ -1,6 +1,6 @@
 Решил переписать прогу под более удобный и универсальный интерфейс. Тут пока что макет приложения, написанного на фрейме электрон. Надо будет доработать потом дизайн. Бэк будет реализован позже.
 Добавил темную тему, пару кнопок и экран загрузки.
 
-![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/9d646254-8f32-4da8-8eb9-b2353a52090d)
+![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/34ca0ef2-bcaa-48e2-9886-a5c70f50945c)
 
-![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/5f500d10-2ef7-4612-98a2-4408f8f2249b)
+![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/10dd3b21-c755-42d1-af5a-58c9e177f730)
