@@ -1,65 +1,76 @@
-const { app, BrowserWindow } = require('electron');
+// main.js
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
+const ipc = ipcMain;
 
 let mainWindow;
 let loadingWindow;
 
 function createLoadingWindow() {
-  loadingWindow = new BrowserWindow({
-    width: 1200,
-    height: 600,
-    frame: false,
-    transparent: true,
-    center: true,
-    webPreferences: {
-      nodeIntegration: true,
-    },
-  });
+    loadingWindow = new BrowserWindow({
+        width: 1200,
+        height: 650,
+        frame: false,
+        transparent: true,
+        center: true,
+        webPreferences: {
+            nodeIntegration: true,
+        },
+    });
 
-  loadingWindow.loadFile('loading.html');
+    loadingWindow.loadFile('src/loading.html');
 
-  loadingWindow.on('closed', () => {
-    loadingWindow = null;
-  });
+    loadingWindow.on('closed', () => {
+        loadingWindow = null;
+    });
 }
 
 function createMainWindow() {
-  mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 600,
-    resizable: false,
-    frame: false,
-    webPreferences: {
-      nodeIntegration: true,
-    },
-  });
+    mainWindow = new BrowserWindow({
+        width: 1200,
+        height: 650,
+        resizable: false,
+        frame: false,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            preload: path.join(__dirname, 'preload.js'),
+        },
+    });
 
-  mainWindow.loadFile('index.html');
 
-    mainWindow.webContents.openDevTools();
-
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
+    mainWindow.loadFile('src/index.html');
+  
+    // Добавим обработчик события для закрытия окна через IPC
+    ipcMain.on('closeApp', () => {
+        console.log('Clicked on Close Btn');
+        mainWindow.close();
+    });
+    
+    ipcMain.on('minimizeApp', () => {
+        console.log('Clicked on Minimize Btn');
+        mainWindow.minimize();
+    });
 }
 
 app.whenReady().then(() => {
-  createLoadingWindow();
+    createLoadingWindow();
 
-  // Simulate some delay for loading (replace this with your actual loading logic)
-  setTimeout(() => {
-    loadingWindow.close();
-    createMainWindow();
-  }, 2000); // 3000 milliseconds (3 seconds) as an example delay
+    setTimeout(() => {
+        loadingWindow.close();
+        createMainWindow();
+    }, 1000);
 });
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });
 
 app.on('activate', () => {
-  if (mainWindow === null) {
-    createMainWindow();
-  }
+    if (mainWindow === null) {
+        createMainWindow();
+    }
 });
+

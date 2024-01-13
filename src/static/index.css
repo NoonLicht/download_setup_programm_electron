@@ -292,7 +292,7 @@ body.dark-theme .close:active {
   transition: background 0.5s ease;
   -webkit-app-region: no-drag;
   position: relative;
-  overflow: hidden; /* Добавлено для ограничения размеров псевдоэлемента */
+  overflow: hidden;
 }
 
 .minimize::before, .close::before, .close::after {
