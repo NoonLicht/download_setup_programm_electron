@@ -2,6 +2,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const ipc = ipcMain;
+const fs = require('fs');
 
 let mainWindow;
 let loadingWindow;
@@ -37,7 +38,6 @@ function createMainWindow() {
             preload: path.join(__dirname, 'preload.js'),
         },
     });
-
 
     mainWindow.loadFile('src/index.html');
   
