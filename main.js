@@ -35,11 +35,11 @@ function createMainWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            preload: path.join(__dirname, 'preload.js'),
+            // preload: path.join(__dirname, 'preload.js'),
         },
     });
 
-    mainWindow.loadFile('src/index.html');
+    mainWindow.loadFile('src/tweak.html');
   
     // Добавим обработчик события для закрытия окна через IPC
     ipcMain.on('closeApp', () => {

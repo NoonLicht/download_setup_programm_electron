@@ -10,6 +10,67 @@
   padding: 10px;
   user-select: none;
 }
+.tweakmenu {
+  display: flex;
+}
+.menu {
+  width: 15%;
+  height: 210px;
+  box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
+  border-radius: 1rem;
+  margin: 1%;
+  text-align: left;
+  padding: 10px;
+  user-select: none;
+}
+.submenu {
+  width: 60%;
+  height: 450px;
+  box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
+  border-radius: 1rem;
+  margin-top: 1%;
+  margin-right: 1%;
+  margin-left: 1%;
+  text-align: left;
+  padding: 10px;
+  user-select: none;
+}
+.description {
+  width: 20%;
+  height: 210px;
+  box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
+  border-radius: 1rem;
+  margin: 1%;
+  text-align: left;
+  padding: 10px;
+  user-select: none;
+}
+.menu-button {
+  width: 100%;
+  height: 40px;
+  border-radius: 0.7rem;
+  box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  background: var(--greyLight-1);
+  transition: background 0.5s ease;
+  color: #adadad;
+  margin-top: 5%;
+}
+.menu-button:hover,
+.menu-button:active {
+color: #4b4b4b;
+  box-shadow: inset 3px 3px 7px var(--greyLight-2),
+    inset -3px -3px 7px var(--white);
+  transition: 0.5s;
+}
+.menu-button.active {
+  color: #4b4b4b;
+  box-shadow: inset 3px 3px 7px var(--greyLight-2),
+    inset -3px -3px 7px var(--white);
+  transition: 0.5s;
+}
 
 .blocks-container {
   justify-content: center;
@@ -20,7 +81,6 @@
 .buttons-container {
   justify-content: center;
   display: flex;
-  margin: 1%;
 }
 
 :root {
@@ -80,7 +140,7 @@ body.dark-theme .titlebar {
 }
 body.dark-theme .close,
 body.dark-theme .minimize,
-body.dark-theme .navbutton {
+body.dark-theme .navbutton{
   box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
   background: var(--darkLight-1);
 }
@@ -94,9 +154,22 @@ body.dark-theme .close:active,
 body.dark-theme .navbutton:active{
   box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
 }
-
+body.dark-theme .menu {
+  box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+}
+body.dark-theme .menu-button{
+  background: var(--darkLight-1);
+  box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+}
+body.dark-theme .menu-button:hover,
+body.dark-theme .menu-button:active,
+body.dark-theme .menu-button.active {
+  box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
+  color: #cdcccc;
+}
 .con {
-  min-height: 90%;
+  margin-top: 32px;
+  height: 72px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -155,6 +228,8 @@ body.dark-theme .navbutton:active{
 
 .titlebar {
   display: inline-block;
+  min-width: 1200px;
+  min-height: 35px;
   width: 100%;
   height: 35px;
   box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
