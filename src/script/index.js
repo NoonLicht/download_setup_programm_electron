@@ -1,7 +1,11 @@
+const { ipcRenderer } = require('electron');
+
 document.addEventListener("DOMContentLoaded", function () {
 
             const container = document.querySelector('.com');
 
+            
+        
             // Создаем контейнер для блоков
             const blocksContainer = document.createElement("div");
             blocksContainer.className = "blocks-container";

@@ -41,7 +41,7 @@ function createMainWindow() {
         },
     });
 
-    mainWindow.loadFile('src/tweak.html');
+    mainWindow.loadFile('src/index.html');
   
     // Добавим обработчик события для закрытия окна через IPC
     ipcMain.on('closeApp', () => {
@@ -52,6 +52,15 @@ function createMainWindow() {
     ipcMain.on('minimizeApp', () => {
         console.log('Clicked on Minimize Btn');
         mainWindow.minimize();
+    });
+
+    ipcMain.on('getThemeIndex', (event) => {
+        event.reply('currentThemeIndex', currentThemeIndex);
+    });
+
+    ipcMain.on('setThemeIndex', (event, newIndex) => {
+        currentThemeIndex = newIndex;
+        mainWindow.webContents.send('currentThemeIndex', newIndex);
     });
 }
 
@@ -74,4 +83,12 @@ app.on('activate', () => {
     if (mainWindow === null) {
         createMainWindow();
     }
+});
+
+ipcMain.on('navigateToIndex', () => {
+    mainWindow.loadFile('src/index.html');
+});
+
+ipcMain.on('navigateToTweak', () => {
+    mainWindow.loadFile('src/tweak.html');
 });
