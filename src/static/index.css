@@ -100,9 +100,14 @@ html {
   background: var(--greyLight-1);
   overflow-y: hidden;
 }
-
+body {
+  transition: all 0.5s ease;
+  transition: background 0.5s ease;
+}
 body.dark-theme {
   background: var(--darkLight-1);
+  transition: all 0.5s ease;
+  transition: background 0.5s ease;
 }
 body.dark-theme .checkbox-block {
   box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;

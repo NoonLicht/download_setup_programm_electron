@@ -24,8 +24,9 @@
   user-select: none;
 }
 .submenu {
+  overflow-y: auto; /* Включите вертикальную прокрутку */
   width: 60%;
-  height: 450px;
+  height: 460px;
   box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
   border-radius: 1rem;
   margin-top: 1%;
@@ -33,6 +34,7 @@
   margin-left: 1%;
   text-align: left;
   padding: 10px;
+  font-size: 18px;
   user-select: none;
 }
 .description {
@@ -44,7 +46,30 @@
   text-align: left;
   padding: 10px;
   user-select: none;
+  font-size: 16px;
 }
+    .tweak-check {
+        margin-bottom: 5px; /* Отступ между строками */
+        cursor: pointer; /* Добавляем курсор при наведении для индикации кликабельности */
+    }
+
+    .tweak-check input {
+        display: none;
+  font-weight: normal;
+
+    }
+
+    .tweak-check label {
+        display: block;
+        padding-left: 20px;
+  font-weight: normal;
+        
+    }
+    .tweak-check input[type="checkbox"]:checked + label,
+    .tweak-check:checked + label {
+      color: #5b0eeb;
+  font-weight: bold;
+    }
 .menu-button {
   width: 100%;
   height: 40px;
@@ -57,6 +82,7 @@
   transition: background 0.5s ease;
   color: #adadad;
   margin-top: 5%;
+  font-size: 14px;
 }
 .menu-button:hover,
 .menu-button:active {
@@ -106,9 +132,14 @@ html {
   background: var(--greyLight-1);
   overflow-y: hidden;
 }
-
-body.dark-theme {
+body {
+  transition: all 0.5s ease;
+  transition: background 0.5s ease;
+}
+body.dark-theme  {
   background: var(--darkLight-1);
+  transition: all 0.5s ease;
+  transition: background 0.5s ease;
 }
 
 body.dark-theme .con {
@@ -154,7 +185,9 @@ body.dark-theme .close:active,
 body.dark-theme .navbutton:active{
   box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
 }
-body.dark-theme .menu {
+body.dark-theme .menu,
+body.dark-theme .description,
+body.dark-theme  .submenu  {
   box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
 }
 body.dark-theme .menu-button{
@@ -167,8 +200,9 @@ body.dark-theme .menu-button.active {
   box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
   color: #cdcccc;
 }
+
 .con {
-  margin-top: 32px;
+  margin-top: 22px;
   height: 72px;
   width: 100%;
   display: flex;

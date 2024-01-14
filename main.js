@@ -1,8 +1,10 @@
 // main.js
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const ipc = ipcMain;
 const fs = require('fs');
+
+
 
 let mainWindow;
 let loadingWindow;
@@ -73,4 +75,3 @@ app.on('activate', () => {
         createMainWindow();
     }
 });
-
