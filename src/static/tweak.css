@@ -1,5 +1,6 @@
 .tweakmenu {
 display: flex;
+margin-bottom: 5.5px;
 }
 .menu {
 width: 15%;
@@ -82,7 +83,7 @@ box-shadow: inset 3px 3px 7px var(--greyLight-2),
 inset -3px -3px 7px var(--white);
 transition: 0.5s;
 }
-.con {
+/* .con {
 margin-top: 22px;
 height: 72px;
-}
+} */

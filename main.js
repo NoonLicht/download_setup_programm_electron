@@ -84,4 +84,3 @@ ipcMain.on('navigateToIndex', () => {
 ipcMain.on('navigateToTweak', () => {
     mainWindow.loadFile('src/tweak.html');
 });
-

@@ -208,10 +208,3 @@ function toggleTheme() {
   ipcRenderer.send('themeChanged', isDarkTheme);
 }
 
-function navigateToIndex() {
-  ipcRenderer.send('navigateToIndex');
-}
-
-function navigateToTweak() {
-  ipcRenderer.send('navigateToTweak');
-}
