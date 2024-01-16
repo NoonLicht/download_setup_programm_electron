@@ -6,7 +6,7 @@ Google
 SophiaApp
 Driver Booster
 AIDA64
-WinDiwStat
+WinDirStat
 MSI Afterburner
 AMD Software
 NVIDIA Experience
@@ -45,7 +45,7 @@ Kaspersky Ultimate
 Dr.Web SS
 MalwareBytes
 BitDefender
-Norton
+ESET NOD32
 /Emulators
 PCSX2
 RPCS3
@@ -58,7 +58,6 @@ NOX Player
 /Creativity
 Blender
 Krita
-GIMP
 Photoshop
 Illustrator
 Kompas 3D

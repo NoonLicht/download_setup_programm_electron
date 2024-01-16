@@ -54,14 +54,7 @@ function createMainWindow() {
         mainWindow.minimize();
     });
 
-    ipcMain.on('getThemeIndex', (event) => {
-        event.reply('currentThemeIndex', currentThemeIndex);
-    });
 
-    ipcMain.on('setThemeIndex', (event, newIndex) => {
-        currentThemeIndex = newIndex;
-        mainWindow.webContents.send('currentThemeIndex', newIndex);
-    });
 }
 
 app.whenReady().then(() => {
