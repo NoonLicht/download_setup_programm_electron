@@ -6,18 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download App</title>
     <link rel="stylesheet" href="static/tweak.css">
-    <script src="script/tweakmenu.js"></script>
+    <link rel="stylesheet" href="static/titlebar.css">
+    <link rel="stylesheet" href="static/dark-theme.css">
+    <link rel="stylesheet" href="static/main.css">
+    <link rel="stylesheet" href="static/buttons.css">
+    <script src="script/tweak.js"></script>
     <script src="script/topbar.js"></script>
     <script src="script/buttons.js"></script>
 </head>
-<style>
-    body {
-        width: 1200px;
-        height: 650px;
-    }
-
-</style>
-
 <body>
     <div class="titlebar" id="titlebar">
         <button class="close" id="closeBtn">
@@ -53,15 +49,6 @@
             </svg>
         </button>
     </div>
-<script>
-    function navigateToIndex() {
-        ipcRenderer.send('navigateToIndex');
-    }
-
-    function navigateToTweak() {
-        ipcRenderer.send('navigateToTweak');
-    }
-</script>
     <div class="tweakmenu">
         <div class="menu">
             <button class="menu-button" id="confidentiality">Конфиденциальность</button>
@@ -69,78 +56,9 @@
             <button class="menu-button" id="system">Система</button>
             <button class="menu-button" id="security">Безопасность</button>
         </div>
-        <div class="submenu">
-        
-        </div>
-        <div class="description">
-            
-        </div>
+        <div class="submenu"></div>
+        <div class="description"></div>
     </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var menuButtons = document.querySelectorAll('.menu-button');
-        var submenu = document.querySelector('.submenu');
-
-        menuButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                menuButtons.forEach(function (btn) {
-                    btn.classList.remove('active');
-                });
-
-                button.classList.add('active');
-                loadFile(button.id);
-            });
-        });
-
-        function loadFile(buttonId) {
-            var fileName = buttonId.toLowerCase() + '.txt';
-            var filePath = 'tweak/' + fileName;
-
-            fetch(filePath)
-                .then(response => response.text())
-                .then(data => {
-                    // Разделение строк, начинающихся с точки
-                    var lines = data.split('\n');
-                    var formattedText = lines.map(line => line.startsWith('.') ? line.slice(1) : line).join('\n');
-
-                    // Отображение отформатированного текста в подменю
-                    displayFormattedText(formattedText);
-                })
-                .catch(error => {
-                    console.error('Ошибка загрузки файла:', error);
-                    // Обработка ошибок, например, вывод сообщения об ошибке в подменю
-                    displayError();
-                });
-        }
-
-        function displayFormattedText(text) {
-            var lines = text.split('\n');
-            var htmlContent = '';
-
-            lines.forEach(function (line) {
-                // Создание чекбокса для каждой строки
-                var checkboxId = 'checkbox-' + Math.random().toString(36).substring(7); // Генерация уникального ID
-                htmlContent += '<div class="tweak-check"><input type="checkbox" id="' + checkboxId + '"><label for="' + checkboxId + '">' + line + '</label></div>';
-            });
-
-            // Отображение HTML-контента в подменю
-            submenu.innerHTML = htmlContent;
-
-            // Добавление обработчика событий для выделения строки при клике
-            var tweakChecks = document.querySelectorAll('.tweak-check');
-            tweakChecks.forEach(function (tweakCheck) {
-                tweakCheck.addEventListener('click', function () {
-                    this.classList.toggle('active');
-                });
-            });
-        }
-
-        function displayError() {
-            submenu.innerHTML = '<p>Ошибка загрузки файла.</p>';
-        }
-    });
-</script>
     <div class="con">
         <div class="com"></div>
     </div>

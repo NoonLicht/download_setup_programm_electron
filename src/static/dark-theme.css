@@ -1,0 +1,70 @@
+body.dark-theme {
+background: var(--darkLight-1);
+transition: all 0.5s ease;
+transition: background 0.5s ease;
+}
+body.dark-theme .checkbox-block {
+box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+}
+body.dark-theme .con {
+background: var(--darkLight-1);
+color: #f1f1f1;
+}
+body.dark-theme .menu,
+body.dark-theme .description,
+body.dark-theme  .submenu  {
+box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+}
+body.dark-theme .menu-button{
+background: var(--darkLight-1);
+box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+}
+body.dark-theme .menu-button:hover,
+body.dark-theme .menu-button:active,
+body.dark-theme .menu-button.active {
+box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
+color: #cdcccc;
+}
+body.dark-theme .normal-button {
+box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+background: var(--darkLight-1);
+}
+body.dark-theme .normal-button:active {
+box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
+}
+body.dark-theme .normal-button:hover {
+box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
+}
+body.dark-theme .toggle-theme-button {
+box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+background: var(--darkLight-1);
+}
+body.dark-theme .toggle-theme-button:active {
+box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
+}
+body.dark-theme .toggle-theme-button:hover {
+box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
+}
+body.dark-theme .checkbox-block input[type="checkbox"]:checked + label,
+body.dark-theme .program-checkbox:checked + label {
+color: #cdcccc;
+}
+body.dark-theme .titlebar {
+box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+}
+body.dark-theme .close,
+body.dark-theme .minimize,
+body.dark-theme .navbutton {
+box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+background: var(--darkLight-1);
+}
+body.dark-theme .minimize:hover,
+body.dark-theme .close:hover,
+body.dark-theme .navbutton:hover {
+box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
+}
+body.dark-theme .minimize:active,
+body.dark-theme .close:active,
+body.dark-theme .navbutton:active{
+box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
+}

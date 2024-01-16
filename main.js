@@ -26,6 +26,7 @@ function createLoadingWindow() {
     loadingWindow.on('closed', () => {
         loadingWindow = null;
     });
+
 }
 
 function createMainWindow() {
@@ -53,8 +54,6 @@ function createMainWindow() {
         console.log('Clicked on Minimize Btn');
         mainWindow.minimize();
     });
-
-
 }
 
 app.whenReady().then(() => {
@@ -85,3 +84,4 @@ ipcMain.on('navigateToIndex', () => {
 ipcMain.on('navigateToTweak', () => {
     mainWindow.loadFile('src/tweak.html');
 });
+

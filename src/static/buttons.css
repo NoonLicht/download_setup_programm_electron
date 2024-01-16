@@ -1,0 +1,37 @@
+.normal-button,
+.toggle-theme-button {
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 0.7rem;
+box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
+font-size: 2rem;
+border: none;
+margin: 1rem;
+cursor: pointer;
+transition: all 0.5s ease;
+background: var(--greyLight-1);
+transition: background 0.5s ease;
+color: var(--primary);
+}
+.normal-button:active,
+.toggle-theme-button:active {
+box-shadow: inset 3px 3px 7px var(--greyLight-2),
+inset -3px -3px 7px var(--white);
+color: var(--primary-dark);
+}
+.normal-button:hover,
+.toggle-theme-button:hover {
+box-shadow: inset 3px 3px 7px var(--greyLight-2),
+inset -3px -3px 7px var(--white);
+transition: 0.5s;
+color: var(--primary-dark);
+}
+.svg-container {
+display: flex;
+justify-content: center;
+transition: transform 0.5s ease;
+}
+.svg-con {
+display: flex;
+justify-content: center;
+}

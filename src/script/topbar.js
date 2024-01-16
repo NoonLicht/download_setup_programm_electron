@@ -11,10 +11,3 @@ document.addEventListener('DOMContentLoaded', () => {
         ipcRenderer.send('minimizeApp');
     });
 });
-// function navigateToIndex() {
-//     ipcRenderer.send('navigateToIndex');
-// }
-
-// function navigateToTweak() {
-//     ipcRenderer.send('navigateToTweak');
-// }

@@ -197,5 +197,21 @@ function gitLink() {
 function toggleTheme() {
   currentSvgIndex = (currentSvgIndex + 1) % svgs.length;
   svgContainer.innerHTML = svgs[currentSvgIndex];
-  document.body.classList.toggle('dark-theme');
+  const isDarkTheme = currentSvgIndex === 1;
+
+  document.body.classList.toggle('dark-theme', isDarkTheme);
+
+  // Сохранение текущего индекса темы в localStorage
+  localStorage.setItem('themeIndex', isDarkTheme ? '1' : '0');
+
+  // Отправка события об изменении темы в главное окно
+  ipcRenderer.send('themeChanged', isDarkTheme);
+}
+
+function navigateToIndex() {
+  ipcRenderer.send('navigateToIndex');
+}
+
+function navigateToTweak() {
+  ipcRenderer.send('navigateToTweak');
 }
