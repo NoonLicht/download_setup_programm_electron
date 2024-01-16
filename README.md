@@ -2,7 +2,7 @@
 
 ![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/1f94750c-75a3-45cd-85ef-2b814ba0d5ab)
 
-![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/f2beef7d-8a50-46f1-956f-57f2e28244b1)
+![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/ef518862-b815-4122-b480-487daf7ba508)
 
 ![image](https://github.com/NoonLicht/download_setup_programm_electron/assets/121355541/9816d74a-baaa-4fa8-b2bc-ad3391ff1172)
 
