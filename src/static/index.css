@@ -12,11 +12,14 @@
 }
 
 .block-name-style {
-  line-height: 1;
+  /* line-height: 1; */
   position: relative;
-  margin-top: 3%;
+  color: #8a8a8b;
+  font-size: 18px;
 }
-
+.program-logo-container {
+  margin: 0;
+}
 .block-name-style::before {
   content: "";
   width: 0;
@@ -56,7 +59,6 @@
 }
 
 .program-checkbox {
-  margin-right: 5px;
   margin-top: 3%;
   cursor: pointer;
 }
@@ -242,7 +244,7 @@ body.dark-theme .navbutton:active{
 }
 
 .checkbox-block input[type="checkbox"] {
-  margin-right: 3px;
+  /* margin-right: 3px; */
   width: 0rem;
   height: 0rem;
   font-weight: normal;
