@@ -8,7 +8,7 @@ body {
 transition: all 0.5s ease;
 transition: background 0.5s ease;
 width: 1200px;
-height: 650px;
+height: 1250px;
 }
 ::-webkit-scrollbar {
 width: 0px;
@@ -63,8 +63,17 @@ transition: all 0.5s ease;
 transition: background 0.5s ease;
 }
 .com {
+margin-top: 40px;
+display: fixed;
 padding: 1rem;
 grid-template-rows: repeat(autofit, -webkit-min-content);
 grid-template-rows: repeat(autofit, min-content);
 align-items: center;
 }
+.coms {
+  display: fixed;
+  padding: 1rem;
+  grid-template-rows: repeat(autofit, -webkit-min-content);
+  grid-template-rows: repeat(autofit, min-content);
+  align-items: center;
+  }

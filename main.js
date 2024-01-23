@@ -77,10 +77,10 @@ app.on('activate', () => {
     }
 });
 
-ipcMain.on('navigateToIndex', () => {
-    mainWindow.loadFile('src/index.html');
-});
+// ipcMain.on('navigateToIndex', () => {
+//     mainWindow.loadFile('src/index.html');
+// });
 
-ipcMain.on('navigateToTweak', () => {
-    mainWindow.loadFile('src/tweak.html');
-});
+// ipcMain.on('navigateToTweak', () => {
+//     mainWindow.loadFile('src/tweak.html');
+// });

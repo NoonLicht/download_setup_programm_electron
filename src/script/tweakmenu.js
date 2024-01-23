@@ -1,9 +1,10 @@
 // Function to create a menu button
-function createMenuButton(id, text) {
+function createMenuButton(id, text, description) {
   const button = document.createElement('button');
   button.className = 'menu-button';
   button.id = id;
   button.textContent = text;
+  button.dataset.description = description;
   button.onclick = function () {
       document.querySelectorAll('.menu-button').forEach(btn => btn.classList.remove('active'));
 
@@ -13,7 +14,6 @@ function createMenuButton(id, text) {
   };
   return button;
 }
-
 function createTweakMenu() {
   const tweakmenu = document.getElementById('tweakmenu');
 
@@ -69,18 +69,34 @@ function displayFormattedText(text) {
   var htmlContent = '';
 
   lines.forEach(function (line) {
-      // Создание чекбокса для каждой строки
-      var checkboxId = 'checkbox-' + Math.random().toString(36).substring(7); // Генерация уникального ID
-      htmlContent += '<div class="tweak-check"><input type="checkbox" id="' + checkboxId + '"><label for="' + checkboxId + '">' + line + '</label></div>';
+      var colonIndex = line.indexOf(':');
+      if (colonIndex !== -1) {
+          var checkboxId = 'checkbox-' + new Date().getTime();
+          var title = line.substring(0, colonIndex).trim();
+          var description = line.substring(colonIndex + 1).trim();
+
+          htmlContent += '<div class="tweak-check" data-description="' + description + '"><input type="checkbox" id="' + checkboxId + '"><label for="' + checkboxId + '">' + title + '</label></div>';
+      }
   });
 
   document.querySelector('.submenu').innerHTML = htmlContent;
 
-  // Добавление обработчика событий для выделения строки при клике
   var tweakChecks = document.querySelectorAll('.tweak-check');
   tweakChecks.forEach(function (tweakCheck) {
+      tweakCheck.addEventListener('mouseover', function () {
+          var descriptionBlock = document.querySelector('.description');
+          descriptionBlock.textContent = this.dataset.description;
+      });
+
+      tweakCheck.addEventListener('mouseout', function () {
+          var descriptionBlock = document.querySelector('.description');
+          descriptionBlock.textContent = '';
+      });
+
       tweakCheck.addEventListener('click', function () {
           this.classList.toggle('active');
+          var checkbox = this.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
       });
   });
 }

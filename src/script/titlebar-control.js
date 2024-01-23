@@ -41,12 +41,5 @@ function createTitleBar() {
     titlebar.appendChild(tweakerBtn);
 }
 
-function navigateToIndex() {
-ipcRenderer.send('navigateToIndex');
-}
-
-function navigateToTweak() {
-ipcRenderer.send('navigateToTweak');
-}
 
 document.addEventListener('DOMContentLoaded', createTitleBar);

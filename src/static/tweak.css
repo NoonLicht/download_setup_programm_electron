@@ -1,10 +1,13 @@
 .tweakmenu {
 display: flex;
 margin-bottom: 5.5px;
+margin-top: 40px;
 }
 .menu {
 width: 15%;
-height: 210px;
+height: 250px;
+/* box-shadow: inset 3px 3px 7px var(--greyLight-2),
+inset -3px -3px 7px var(--white); */
 box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
 border-radius: 1rem;
 margin: 1%;
@@ -14,9 +17,9 @@ padding-right: 10px;
 user-select: none;
 }
 .submenu {
-overflow-y: auto; /* Включите вертикальную прокрутку */
+overflow-y: auto;
 width: 60%;
-height: 460px;
+height: 445px;
 box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
 border-radius: 1rem;
 margin-top: 1%;
@@ -29,17 +32,18 @@ user-select: none;
 }
 .description {
 width: 20%;
-height: 210px;
+height: 445px;
 box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
 border-radius: 1rem;
 margin: 1%;
 text-align: left;
 padding: 10px;
 user-select: none;
-font-size: 16px;
+padding: 10px;
+font-size: 18px;
 }
 .tweak-check {
-margin-bottom: 5px; /* Отступ между строками */
+margin-bottom: 5px;
 padding-top: 10px;
 }
 .tweak-check input {
@@ -53,8 +57,23 @@ color: #8a8a8b;
 }
 .tweak-check input[type="checkbox"]:checked + label,
 .tweak-check:checked + label {
-color: #4b4b4b;
-font-weight: bold;
+  color: #000000;
+  position: relative;
+}
+.tweak-check input[type="checkbox"]:checked + label::after,
+.tweak-check:checked + label::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 0.5s;
+}
+.tweak-check input[type="checkbox"]:checked + label::after {
+  width: 100%;
 }
 .menu-button {
 width: 100%;
@@ -67,7 +86,7 @@ transition: all 0.5s ease;
 background: var(--greyLight-1);
 transition: background 0.5s ease;
 color: #adadad;
-margin-top: 10px;
+margin-top: 18px;
 font-size: 14px;
 }
 .menu-button:hover,
@@ -83,7 +102,3 @@ box-shadow: inset 3px 3px 7px var(--greyLight-2),
 inset -3px -3px 7px var(--white);
 transition: 0.5s;
 }
-/* .con {
-margin-top: 22px;
-height: 72px;
-} */

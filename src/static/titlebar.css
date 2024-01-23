@@ -1,6 +1,18 @@
-
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  --white: #ffffff;
+  --greyLight-1: #f1f1f1;
+  --darkLight-1: #32383c;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #5a6378;
+  }
 .titlebar {
 display: inline-block;
+position: fixed;
+margin-bottom: 35px;
 width: 100%;
 height: 35px;
 box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
@@ -9,6 +21,8 @@ text-align: left;
 cursor: pointer;
 -webkit-app-region: drag;
 transition: all 0.5s ease;
+background: var(--greyLight-1);
+z-index: 1000; 
 }
 .minimize,
 .close {
