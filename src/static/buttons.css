@@ -1,5 +1,5 @@
-.normal-button,
-.toggle-theme-button {
+.normal-button {
+position: relative;
 width: 2.5rem;
 height: 2.5rem;
 border-radius: 0.7rem;
@@ -13,14 +13,12 @@ background: var(--greyLight-1);
 transition: background 0.5s ease;
 color: var(--primary);
 }
-.normal-button:active,
-.toggle-theme-button:active {
+.normal-button:active {
 box-shadow: inset 3px 3px 7px var(--greyLight-2),
 inset -3px -3px 7px var(--white);
 color: var(--primary-dark);
 }
-.normal-button:hover,
-.toggle-theme-button:hover {
+.normal-button:hover {
 box-shadow: inset 3px 3px 7px var(--greyLight-2),
 inset -3px -3px 7px var(--white);
 transition: 0.5s;
@@ -34,4 +32,17 @@ transition: transform 0.5s ease;
 .svg-con {
 display: flex;
 justify-content: center;
+}
+.button-text {
+  position: absolute;
+  top: 100%; /* Поменяйте на 100% для того, чтобы текст появлялся над кнопкой */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  white-space: nowrap;
+  display: none;
+}
+
+.normal-button:hover .button-text {
+  display: block;
 }
