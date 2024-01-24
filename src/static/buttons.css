@@ -34,15 +34,26 @@ display: flex;
 justify-content: center;
 }
 .button-text {
-  position: absolute;
-  top: 100%; /* Поменяйте на 100% для того, чтобы текст появлялся над кнопкой */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  white-space: nowrap;
-  display: none;
+content: "";
+font-size: 13px;
+padding: 3px;
+position: absolute;
+top: 60px;
+left: 50%;
+transform: translate(-50%, -50%);
+height: auto;
+white-space: nowrap;
+color: #4b4b4b;
+box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+border: none;
+border-radius: 5px;
+opacity: 0;
+transition: all 0.25s linear;
+z-index: 1000;
 }
-
 .normal-button:hover .button-text {
-  display: block;
+opacity: 1;
 }

@@ -72,7 +72,7 @@ align-items: center;
 }
 .coms {
   display: fixed;
-  padding: 1rem;
+  margin-bottom: 23px;
   grid-template-rows: repeat(autofit, -webkit-min-content);
   grid-template-rows: repeat(autofit, min-content);
   align-items: center;

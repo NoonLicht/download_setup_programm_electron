@@ -13,7 +13,7 @@ height: 2px;
 border-radius: 2px;
 background-color: var(--primary);
 position: absolute;
-bottom: -0.25rem;
+bottom: -0.15rem;
 left: 0;
 transition: width 0.4s;
 }

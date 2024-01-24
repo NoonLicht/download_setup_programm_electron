@@ -69,3 +69,7 @@ body.dark-theme .close:active,
 body.dark-theme .navbutton:active{
 box-shadow: inset 3px 3px 7px #1d2023, inset -3px -3px 7px #ffffff1a;
 }
+body.dark-theme .button-text {
+box-shadow: 6px 6px 12px #0000005a, -3px -3px 6px #7c7c7c8a;
+color: #cdcccc;
+}
