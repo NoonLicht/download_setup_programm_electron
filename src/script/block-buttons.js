@@ -1,4 +1,5 @@
-const { shell, dialog } = require('electron');
+const { shell } = require('electron');
+const sudo = require('sudo-prompt');
 
 document.addEventListener("DOMContentLoaded", function () {
   const container1 = document.querySelector('.container1 .com');
@@ -164,7 +165,15 @@ function installHyper() {
 }
 
 function installWSL() {
-  console.log("Установить WSL");
+  const command = 'wsl.exe --install -d Ubuntu-22.04';
+  
+  sudo.exec(command, { name: 'Your App Name' }, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Ошибка установки WSL: ${error}`);
+    } else {
+      console.log(`WSL успешно установлен:\n${stdout}`);
+    }
+  });
 }
 
 function downloadData() {
