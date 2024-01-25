@@ -4,8 +4,9 @@ const sudo = require('sudo-prompt');
 document.addEventListener("DOMContentLoaded", function () {
   const container1 = document.querySelector('.container1 .com');
   const container2 = document.querySelector('.container2 .coms');
+  const container3 = document.querySelector('.container3 .coms');
 
-  // Создаем кнопки для контейнера1
+  // Создаем кнопки для блоков с приложениями
   const buttonsContainer1 = document.createElement("div");
   buttonsContainer1.className = "buttons-container";
 
@@ -14,21 +15,31 @@ document.addEventListener("DOMContentLoaded", function () {
   buttonsContainer1.appendChild(installButton);
   buttonsContainer1.appendChild(installLinux);
   buttonsContainer1.appendChild(installHyperV);
-  buttonsContainer1.appendChild(GithubLink);
-  buttonsContainer1.appendChild(toggleThemeBtn);
+  buttonsContainer1.appendChild(GithubLinkOne);
+  buttonsContainer1.appendChild(toggleThemeBtnOne);
 
   container1.appendChild(buttonsContainer1);
 
-  // Создаем кнопки для контейнера2
+  // Создаем кнопки для твиков
   const buttonsContainer2 = document.createElement("div");
   buttonsContainer2.className = "buttons-container";
 
   buttonsContainer2.appendChild(EnableCheck);
   buttonsContainer2.appendChild(RollBack);
-  buttonsContainer2.appendChild(GithubLinkDouble);
-  buttonsContainer2.appendChild(toggleThemeBtnDouble);
+  buttonsContainer2.appendChild(GithubLinkTwo);
+  buttonsContainer2.appendChild(toggleThemeBtnTwo);
 
   container2.appendChild(buttonsContainer2);
+
+  //Создаем кнопки для страницы с удалением программ
+  const buttonsContainer3 = document.createElement("div");
+  buttonsContainer3.className = "buttons-container";
+
+  buttonsContainer3.appendChild(deleteChecked);
+  buttonsContainer3.appendChild(GithubLinkThree);
+  buttonsContainer3.appendChild(toggleThemeBtnThree);
+
+  container3.appendChild(buttonsContainer3);
 });
 
 // Остальной код кнопок и их обработчиков
@@ -91,7 +102,7 @@ const installButton = createIconButton(
 
 const installLinux = createIconButton(
   "button normal-button",
-  installWSL,
+  enableWSL,
   "m8 9 3 3-3 3 M13 15h3 M5 20h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z",
   "Установить WSL"
 );
@@ -103,14 +114,28 @@ const installHyperV = createIconButton(
   "Включить Hyper-V"
 );
 
-const GithubLink = createIconButton(
+const deleteChecked = createIconButton(
+  "button normal-button",
+  deleteApps,
+  "M10 11v6m4-6v6M4 7h16m-1 0-.867 12.142A2 2 0 0 1 16.138 21H7.862a2 2 0 0 1-1.995-1.858L5 7h14Zm-4 0V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v3h6Z",
+  "Удалить выбранное"
+)
+
+const GithubLinkOne = createIconButton(
   "button normal-button",
   gitLink,
   "M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21h6Z M9 19c-4.3 1.4-4.3-2.5-6-3",
   "Репозиторий"
 );
 
-const GithubLinkDouble = createIconButton(
+const GithubLinkTwo = createIconButton(
+  "button normal-button",
+  gitLink,
+  "M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21h6Z M9 19c-4.3 1.4-4.3-2.5-6-3",
+  "Репозиторий"
+);
+
+const GithubLinkThree = createIconButton(
   "button normal-button",
   gitLink,
   "M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21h6Z M9 19c-4.3 1.4-4.3-2.5-6-3",
@@ -131,14 +156,21 @@ const RollBack = createIconButton(
   "Отменить изменения"
 );
 
-const toggleThemeBtn = createIconButton(
+const toggleThemeBtnOne = createIconButton(
   "button normal-button",
   toggleTheme,
   "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z",
   "Сменить тему"
 );
 
-const toggleThemeBtnDouble = createIconButton(
+const toggleThemeBtnTwo = createIconButton(
+  "button normal-button",
+  toggleTheme,
+  "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z",
+  "Сменить тему"
+);
+
+const toggleThemeBtnThree = createIconButton(
   "button normal-button",
   toggleTheme,
   "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z",
@@ -146,6 +178,10 @@ const toggleThemeBtnDouble = createIconButton(
 );
 
 //----------------------------------------Обработка кнопок----------------------------------------//
+
+function deleteApps() {
+  console.log("Удалить выбранные приложения")
+}
 
 function enableCheck() {
   console.log("Установить данные");
@@ -156,18 +192,38 @@ function rollBack() {
 }
 
 function chooseFolder() {
-  // Отправляем сообщение в основной процесс
   ipcRenderer.send('openFolderDialog');
 }
 
 function installHyper() {
-  console.log("Включить Hyper-V");
+  const command = 'powershell Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All';
+
+  sudo.exec(command, { name: 'Your App Name' }, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Ошибка при включении Hyper-V: ${error}`);
+    } else {
+      console.log(`Hyper-V успешно включен:\n${stdout}`);
+    }
+  });
+}
+
+function enableWSL() {
+  const enableCommand = 'powershell dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart';
+
+  sudo.exec(enableCommand, { name: 'Your App Name' }, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Ошибка при включении WSL: ${error}`);
+    } else {
+      console.log(`WSL успешно включен:\n${stdout}`);
+      installWSL();
+    }
+  });
 }
 
 function installWSL() {
-  const command = 'wsl.exe --install -d Ubuntu-22.04';
-  
-  sudo.exec(command, { name: 'Your App Name' }, (error, stdout, stderr) => {
+  const installCommand = 'wsl.exe --install -d Ubuntu-22.04';
+
+  sudo.exec(installCommand, { name: 'Your App Name' }, (error, stdout, stderr) => {
     if (error) {
       console.error(`Ошибка установки WSL: ${error}`);
     } else {
@@ -193,8 +249,9 @@ function toggleTheme() {
   const isDarkTheme = document.body.classList.toggle('dark-theme');
   console.log("Theme toggled:", isDarkTheme);
 
-  const pathElementsBtn1 = toggleThemeBtn.querySelectorAll("path");
-  const pathElementsBtn2 = toggleThemeBtnDouble.querySelectorAll("path");
+  const pathElementsBtn1 = toggleThemeBtnOne.querySelectorAll("path");
+  const pathElementsBtn2 = toggleThemeBtnTwo.querySelectorAll("path");
+  const pathElementsBtn3 = toggleThemeBtnThree.querySelectorAll("path");
 
   const newPath = isDarkTheme
     ? "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"
@@ -205,6 +262,10 @@ function toggleTheme() {
   });
 
   pathElementsBtn2.forEach((path) => {
+    path.setAttribute("d", newPath);
+  });
+
+  pathElementsBtn3.forEach((path) => {
     path.setAttribute("d", newPath);
   });
 }

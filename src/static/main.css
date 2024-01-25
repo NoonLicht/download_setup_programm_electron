@@ -77,3 +77,6 @@ align-items: center;
   grid-template-rows: repeat(autofit, min-content);
   align-items: center;
   }
+.container3 {
+  display:none
+}
