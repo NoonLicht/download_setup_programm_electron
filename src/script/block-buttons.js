@@ -1,4 +1,4 @@
-const { shell } = require('electron');
+const { shell, dialog } = require('electron');
 
 document.addEventListener("DOMContentLoaded", function () {
   const container1 = document.querySelector('.container1 .com');
@@ -155,7 +155,8 @@ function rollBack() {
 }
 
 function chooseFolder() {
-  console.log("Выбрать папку");
+  // Отправляем сообщение в основной процесс
+  ipcRenderer.send('openFolderDialog');
 }
 
 function installHyper() {
