@@ -3,7 +3,7 @@ Yandex
 Opera
 Google
 /Utilities
-SophiaApp
+SophiApp
 Driver Booster
 AIDA64
 WinDirStat
@@ -15,7 +15,6 @@ OpenVpn
 Steam
 Epic Games
 Rockstar Launcher
-Riot Client
 GOG Galaxy
 qBittorrent
 /Communication
@@ -35,7 +34,6 @@ DirectX
 Node.js
 Python 3.12
 Visual C++ x64
-Visual C++ x86
 .NET Runtime 5
 .NET Runtime 6
 .NET Runtime 7
@@ -65,8 +63,8 @@ Kompas 3D
 7-ZIP
 WinRAR
 PowerToys
-NotePad++
 FileZilla
 KMP Player
 Microsoft Office
 StartAllBack
+StartAllBack11

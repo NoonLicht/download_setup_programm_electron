@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
   buttonsContainer2.className = "buttons-container";
 
   buttonsContainer2.appendChild(EnableCheck);
-  buttonsContainer2.appendChild(RollBack);
   buttonsContainer2.appendChild(GithubLinkTwo);
   buttonsContainer2.appendChild(toggleThemeBtnTwo);
 
@@ -149,13 +148,6 @@ const EnableCheck = createIconButton(
   "Применить"
 );
 
-const RollBack = createIconButton(
-  "button normal-button",
-  rollBack,
-  "m15 19-7-7 7-7",
-  "Отменить изменения"
-);
-
 const toggleThemeBtnOne = createIconButton(
   "button normal-button",
   toggleTheme,
@@ -187,12 +179,16 @@ function enableCheck() {
   console.log("Установить данные");
 }
 
-function rollBack() {
-  console.log("Ссылка на репозиторий");
-}
-
 function chooseFolder() {
   ipcRenderer.send('openFolderDialog');
+}
+
+function downloadData() {
+  console.log("Скачать данные");
+}
+
+function installData() {
+  console.log("Установить данные");
 }
 
 function installHyper() {
@@ -230,14 +226,6 @@ function installWSL() {
       console.log(`WSL успешно установлен:\n${stdout}`);
     }
   });
-}
-
-function downloadData() {
-  console.log("Скачать данные");
-}
-
-function installData() {
-  console.log("Установить данные");
 }
 
 function gitLink() {
