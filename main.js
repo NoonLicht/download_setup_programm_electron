@@ -78,13 +78,13 @@ app.on('activate', () => {
 });
 
 // Добавьте обработчик для открытия диалога выбора папки
-    ipcMain.on('openFolderDialog', async (event, arg) => {
+ipcMain.on('openFolderDialog', async (event, arg) => {
     const result = await dialog.showOpenDialog({
         properties: ['openDirectory'],
     });
 
     // В result.filePaths у вас будет выбранный путь к папке
     const folderPath = result.filePaths[0];
-    console.log('Выбранная папка:', folderPath);
+    console.log('Selected folder:', folderPath);
     // Вы можете сохранить этот путь и использовать его по необходимости
 });
