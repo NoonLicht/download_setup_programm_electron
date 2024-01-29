@@ -34,6 +34,7 @@ DirectX
 Node.js
 Python 3.12
 Visual C++ x64
+Visual C++ x86
 .NET Runtime 5
 .NET Runtime 6
 .NET Runtime 7

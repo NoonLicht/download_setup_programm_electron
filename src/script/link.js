@@ -57,6 +57,8 @@ function getDataIdOrLink(programName, blockIndex) {
   }
 }
 
+
+
 function processIdOrLink(idOrLink) {
   if (idOrLink.match(/^\d{3,5}$/)) {
       // Если значение является числом от 3 до 5 цифр, формируем ссылку
