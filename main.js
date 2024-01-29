@@ -3,7 +3,7 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const ipc = ipcMain;
 const fs = require('fs');
-
+const axios = require('axios')
 
 
 let mainWindow;
@@ -88,3 +88,4 @@ ipcMain.on('openFolderDialog', async (event, arg) => {
     console.log('Selected folder:', folderPath);
     // Вы можете сохранить этот путь и использовать его по необходимости
 });
+

@@ -180,6 +180,8 @@ function enableCheck() {
 }
 
 function chooseFolder() {
+  console.log("Выбрать папку");
+
   ipcRenderer.send('openFolderDialog');
 }
 

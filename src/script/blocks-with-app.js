@@ -82,7 +82,7 @@ function initIndex() {
                         const programName = line.trim();
 
                         // Формируем путь к логотипу
-                        const logoPath = `C:/Users/Moon/Desktop/MyProject/download_setup_programm_electron/src/logo/${programName}.png`;
+                        const logoPath = `logo/${programName}.png`;
 
                         // Создаем элемент логотипа
                         const programLogo = document.createElement("img");
