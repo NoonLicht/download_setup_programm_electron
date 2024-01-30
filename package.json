@@ -24,6 +24,7 @@
     "electron-require": "^0.3.0",
     "electron-titlebar-windows": "^2.1.0",
     "node-fetch": "^3.3.2",
+    "open": "^10.0.3",
     "sudo-prompt": "^9.2.1",
     "wxios": "^1.0.0"
   }

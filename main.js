@@ -76,14 +76,26 @@ app.on('activate', () => {
     }
 });
 
-// Добавьте обработчик для открытия диалога выбора папки
+// Добавляем обработчик для открытия диалога выбора папки
 ipcMain.on('openFolderDialog', async (event, arg) => {
-    const result = await dialog.showOpenDialog({
-        properties: ['openDirectory'],
-    });
+  const result = await dialog.showOpenDialog({
+    properties: ['openDirectory'],
+    defaultPath: arg || undefined, // Устанавливаем начальный путь
+  });
 
-    // В result.filePaths у вас будет выбранный путь к папке
-    const folderPath = result.filePaths[0];
-    console.log('Selected folder:', folderPath);
-    // Вы можете сохранить этот путь и использовать его по необходимости
+  // В result.filePaths у вас будет выбранный путь к папке
+  const folderPath = result.filePaths[0];
+  console.log('Selected folder:', folderPath);
+
+  // Сохраняем выбранный путь
+  event.reply('folderSelected', folderPath);
+});
+
+// Добавляем обработчик для открытия ссылок в фоне
+ipcMain.on('openLinksInBackground', async (event, links) => {
+  // Открываем каждую ссылку в фоне (это пример, вы можете использовать свой механизм)
+  for (const link of links) {
+    // Ваш код для открытия ссылок в фоне
+    console.log('Opening link in background:', link);
+  }
 });

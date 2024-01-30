@@ -1,5 +1,6 @@
 const { shell } = require('electron');
 const sudo = require('sudo-prompt');
+const { exec } = require('child_process');
 
 document.addEventListener("DOMContentLoaded", function () {
   const container1 = document.querySelector('.container1 .com');
@@ -179,14 +180,68 @@ function enableCheck() {
   console.log("Установить данные");
 }
 
+let selectedFolderPath = null;
+
 function chooseFolder() {
   console.log("Выбрать папку");
 
-  ipcRenderer.send('openFolderDialog');
+  // Перед отправкой запроса на открытие диалога, сохраняем текущую выбранную папку
+  ipcRenderer.send('openFolderDialog', selectedFolderPath);
+}
+
+// Добавляем функцию для сохранения ссылки во временный файл
+function saveLinkToFile(link) {
+  const tempFilePath = path.join(__dirname, 'temp_links.txt');
+
+  // Читаем текущие ссылки из временного файла
+  let currentLinks = [];
+  try {
+    currentLinks = fs.readFileSync(tempFilePath, 'utf-8').split('\n').filter(Boolean);
+  } catch (error) {
+    console.error('Ошибка при чтении временного файла:', error.message);
+  }
+
+  // Проверяем, есть ли текущая ссылка в списке
+  const index = currentLinks.indexOf(link);
+  if (index === -1) {
+    // Если ссылки нет, добавляем её в список
+    currentLinks.push(link);
+  } else {
+    // Если ссылка уже есть, удаляем её из списка
+    currentLinks.splice(index, 1);
+  }
+
+  // Сохраняем обновленный список обратно во временный файл
+  fs.writeFileSync(tempFilePath, currentLinks.join('\n'));
+}
+
+// Добавляем функцию для открытия ссылок в фоне
+function openLinksInBackground() {
+  const linksFilePath = 'src/temp_links.txt';
+
+  // Читаем ссылки из временного файла
+  const links = fs.readFileSync(linksFilePath, 'utf-8').split('\n');
+
+  // Открываем каждую ссылку в стандартном браузере
+  links.forEach((link) => {
+    if (link.trim() !== '') {
+      console.log(`Opening link in background: ${link}`);
+      exec(`start /B ${link}`, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error opening link: ${error.message}`);
+        }
+      });
+    }
+  });
+
+  // Очищаем файл после использования
+  fs.writeFileSync(linksFilePath, '');
 }
 
 function downloadData() {
   console.log("Скачать данные");
+
+    openLinksInBackground();
 }
 
 function installData() {

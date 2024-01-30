@@ -5,22 +5,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const blocksContainer = document.querySelector('.blocks-container');
 
   blocksContainer.addEventListener("click", function (event) {
-      const target = event.target;
+    const target = event.target;
 
-      // Проверяем, является ли элемент чекбоксом
-      if (target.type === "checkbox" && target.className === "program-checkbox") {
-          // Получаем текстовое содержимое (название программы)
-          const programName = target.nextElementSibling.textContent.trim();
+    // Проверяем, является ли элемент чекбоксом
+    if (target.type === "checkbox" && target.className === "program-checkbox") {
+      // Получаем текстовое содержимое (название программы)
+      const programName = target.nextElementSibling.textContent.trim();
 
-          // Получаем индекс блока, в котором находится чекбокс
-          const blockIndex = Array.from(target.closest('.checkbox-block').parentNode.children).indexOf(target.closest('.checkbox-block'));
+      // Получаем индекс блока, в котором находится чекбокс
+      const blockIndex = Array.from(target.closest('.checkbox-block').parentNode.children).indexOf(target.closest('.checkbox-block'));
 
-          // Получаем строку из data_id.txt, соответствующую выбранной программе
-          const idOrLink = getDataIdOrLink(programName, blockIndex);
+      // Получаем строку из data_id.txt, соответствующую выбранной программе
+      const idOrLink = getDataIdOrLink(programName, blockIndex);
 
-          // Обрабатываем полученное значение
-          processIdOrLink(idOrLink);
-      }
+      // Обрабатываем полученное значение
+      processIdOrLink(idOrLink);
+    }
   });
 });
 
@@ -43,7 +43,7 @@ function getDataIdOrLink(programName, blockIndex) {
       // Проверяем, является ли значение числом (id) или ссылкой
       if (!isNaN(dataIdLine)) {
         // Это id, формируем ссылку
-        return `https://www.comss.ru/download/page.php?id=${dataIdLine}`;
+        return `https://example.com/download/page.php?id=${dataIdLine}`;
       } else {
         // Это ссылка
         return dataIdLine;
@@ -57,15 +57,21 @@ function getDataIdOrLink(programName, blockIndex) {
   }
 }
 
+// Добавляем обработчик для обновления выбранной папки
+ipcRenderer.on('folderSelected', (event, folderPath) => {
+  selectedFolderPath = folderPath;
+});
 
-
+// Модифицируем функцию processIdOrLink для сохранения ссылки во временный файл
 function processIdOrLink(idOrLink) {
-  if (idOrLink.match(/^\d{3,5}$/)) {
-      // Если значение является числом от 3 до 5 цифр, формируем ссылку
-      const link = `https://www.comss.ru/download/page.php?id=${idOrLink}`;
-      console.log(link);
+  if (idOrLink.match(/^https?:\/\//)) {
+    // Если значение начинается с http:// или https://, считаем его ссылкой
+    console.log(idOrLink);
+
+    // Сохраняем ссылку во временный файл
+    saveLinkToFile(idOrLink);
   } else {
-      // Если значение не является числом, считаем его ссылкой
-      console.log(idOrLink);
+    // Если значение не является ссылкой, считаем его ошибкой
+    console.log('Ошибка: Неверный формат ссылки или id');
   }
 }
