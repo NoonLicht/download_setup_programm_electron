@@ -2,6 +2,7 @@ const { shell } = require('electron');
 const sudo = require('sudo-prompt');
 const { exec } = require('child_process');
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const container1 = document.querySelector('.container1 .com');
   const container2 = document.querySelector('.container2 .coms');
@@ -215,21 +216,41 @@ function saveLinkToFile(link) {
   fs.writeFileSync(tempFilePath, currentLinks.join('\n'));
 }
 
-// Добавляем функцию для открытия ссылок в фоне
+const https = require('https');
+
 function openLinksInBackground() {
   const linksFilePath = 'src/temp_links.txt';
 
   // Читаем ссылки из временного файла
   const links = fs.readFileSync(linksFilePath, 'utf-8').split('\n');
 
-  // Открываем каждую ссылку в стандартном браузере
+  // Проверяем, выбрана ли папка
+  if (!selectedFolderPath) {
+    console.error('Выберите папку перед скачиванием!');
+    return;
+  }
+
+  // Открываем каждую ссылку в фоновом режиме и сохраняем в выбранную папку
   links.forEach((link) => {
     if (link.trim() !== '') {
-      console.log(`Opening link in background: ${link}`);
-      exec(`start /B ${link}`, (error, stdout, stderr) => {
-        if (error) {
-          console.error(`Error opening link: ${error.message}`);
-        }
+      console.log(`Downloading file from link: ${link}`);
+
+      // Получаем имя файла из ссылки
+      const fileName = path.basename(link);
+
+      // Создаем поток для записи файла
+      const fileStream = fs.createWriteStream(path.join(selectedFolderPath, fileName));
+
+      // Загружаем файл с помощью https
+      https.get(link, (response) => {
+        response.pipe(fileStream);
+
+        fileStream.on('finish', () => {
+          fileStream.close();
+          console.log(`File downloaded to: ${path.join(selectedFolderPath, fileName)}`);
+        });
+      }).on('error', (error) => {
+        console.error(`Error downloading file: ${error.message}`);
       });
     }
   });
@@ -237,6 +258,7 @@ function openLinksInBackground() {
   // Очищаем файл после использования
   fs.writeFileSync(linksFilePath, '');
 }
+
 
 function downloadData() {
   console.log("Скачать данные");

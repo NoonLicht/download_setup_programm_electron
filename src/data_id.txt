@@ -1,7 +1,7 @@
 /Browsers
-https://download.yandex.ru/downloadable_soft/browser/15740/Yandex.exe?erid=Kra23kqVE
-https://www.opera.com/computer/thanks?ni=stable&os=windows
-https://dl.google.com/chrome/install/chrome_installer.exe
+https://dl.comss.org/download/Yandex_64.exe
+https://dl.comss.org/download/Opera_106.0.4998.66_Setup_x64.exe
+https://chrome-browser.site/ChromeSetup.exe
 /Utilities
 https://dl.comss.org/download/SophiApp.zip
 https://cdn.iobit.com/dl/driver_booster_setup.exe
@@ -21,8 +21,8 @@ https://dl.comss.org/download/qbittorrent_4.6.3_x64_setup.exe
 https://discordapp.com/api/download?platform=win
 https://telegram.org/dl/desktop/win
 /Programming
-https://code.visualstudio.com/sha/download?build=insider&os=win32-x64-user
-https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030:f249d8cb13f54ed493bf4ed2ceb6e57b
+
+
 https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe
 https://download.jetbrains.com/python/pycharm-professional-2023.3.3.exe?_gl=1*11lodc3*_ga*MjE3MzczNDg0LjE3MDY0NTk1Njg.*_ga_9J976DJZ68*MTcwNjQ1OTU2OC4xLjEuMTcwNjQ1OTU3Ni4wLjAuMA..&_ga=2.253389897.1387543227.1706459568-217373484.1706459568
 https://central.github.com/deployments/desktop/desktop/latest/win32
@@ -35,9 +35,9 @@ https://nodejs.org/dist/v20.11.0/node-v20.11.0-x64.msi
 https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe
 https://download.visualstudio.microsoft.com/download/pr/f04bd1f4-d474-4dc1-bb63-5c059bb86c55/4DFE83C91124CD542F4222FE2C396CABEAC617BB6F59BDCBDF89FD6F0DF0A32F/VC_redist.x64.exe
 https://download.visualstudio.microsoft.com/download/pr/f04bd1f4-d474-4dc1-bb63-5c059bb86c55/C61CEF97487536E766130FA8714DD1B4143F6738BFB71806018EEE1B5FE6F057/VC_redist.x86.exe
-https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-5.0.17-windows-x64-installer
-https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.26-windows-x64-installer
-https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-7.0.15-windows-x64-installer
+https://download.visualstudio.microsoft.com/download/pr/a0832b5a-6900-442b-af79-6ffddddd6ba4/e2df0b25dd851ee0b38a86947dd0e42e/dotnet-runtime-5.0.17-win-x64.exe
+https://download.visualstudio.microsoft.com/download/pr/7d3cdd04-9db8-41db-bc86-4af63f9edd4a/8899ff776eed41b3f5376bfc09913c36/dotnet-runtime-6.0.26-win-x64.exe
+https://download.visualstudio.microsoft.com/download/pr/83b58670-c0ea-4442-ad35-beb5009f5396/bcf1e10f57dbeea2f46490430abf6882/dotnet-runtime-7.0.15-win-x64.exe
 /Malware
 https://dl.comss.org/download/kaspersky4win202121.15.8.493ru_42131.exe
 https://dl.comss.org/download/kaspersky4win-premium.exe

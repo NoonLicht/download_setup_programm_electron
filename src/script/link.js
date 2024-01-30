@@ -43,7 +43,7 @@ function getDataIdOrLink(programName, blockIndex) {
       // Проверяем, является ли значение числом (id) или ссылкой
       if (!isNaN(dataIdLine)) {
         // Это id, формируем ссылку
-        return `https://example.com/download/page.php?id=${dataIdLine}`;
+        return `${dataIdLine}`;
       } else {
         // Это ссылка
         return dataIdLine;
