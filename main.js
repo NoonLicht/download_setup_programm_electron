@@ -3,6 +3,7 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const ipc = ipcMain;
 const fs = require('fs');
+const { exec } = require('child_process');
 
 
 let mainWindow;
@@ -99,3 +100,63 @@ ipcMain.on('openLinksInBackground', async (event, links) => {
     console.log('Opening link in background:', link);
   }
 });
+
+// Добавляем обработчик для запуска процесса установки
+ipcMain.on('startInstallation', (event, folderPath) => {
+    console.log('Starting installation process...');
+  
+    // Получаем список файлов в выбранной папке
+    fs.readdir(folderPath, (err, files) => {
+      if (err) {
+        console.error(`Error reading directory: ${err.message}`);
+        return;
+      }
+  
+      // Фильтруем только файлы с расширением .exe
+      const exeFiles = files.filter(file => path.extname(file).toLowerCase() === '.exe');
+  
+      if (exeFiles.length === 0) {
+        console.log('No executable files found in the selected folder.');
+        return;
+      }
+  
+      // Запускаем установку каждого exe файла по очереди
+      installNextExe(folderPath, exeFiles, 0);
+    });
+  });
+  
+  // Функция рекурсивной установки следующего exe файла
+  function installNextExe(folderPath, exeFiles, index) {
+    if (index >= exeFiles.length) {
+      console.log('Installation of all executable files completed.');
+      return;
+    }
+  
+    const filePath = path.join(folderPath, exeFiles[index]);
+    console.log(`Installing ${filePath}...`);
+  
+    // Запускаем процесс установки тихо
+    exec(`start /B /WAIT "" "${filePath}" /S`, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error installing ${filePath}: ${error.message}`);
+        return;
+      }
+  
+      console.log(`Installation of ${filePath} completed.`);
+  
+      // После установки удаляем exe файл
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.error(`Error deleting ${filePath}: ${err.message}`);
+          // Переход к следующему exe файлу
+          installNextExe(folderPath, exeFiles, index + 1);
+          return;
+        }
+      
+        console.log(`${filePath} deleted.`);
+        
+        // Переход к следующему exe файлу
+        installNextExe(folderPath, exeFiles, index + 1);
+      });
+    });
+  }

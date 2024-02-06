@@ -268,6 +268,8 @@ function downloadData() {
 
 function installData() {
   console.log("Установить данные");
+
+  ipcRenderer.send('startInstallation', selectedFolderPath);
 }
 
 function installHyper() {
