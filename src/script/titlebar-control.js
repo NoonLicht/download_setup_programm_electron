@@ -38,7 +38,7 @@ function createTitleBar() {
     titlebar.appendChild(closeBtn);
     titlebar.appendChild(minimizeBtn);
     titlebar.appendChild(menuBtn);
-    titlebar.appendChild(tweakerBtn);
+    // titlebar.appendChild(tweakerBtn);
 }
 
 
